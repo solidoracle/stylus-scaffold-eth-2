@@ -1,3 +1,4 @@
+import { defineChain } from "viem";
 import * as chains from "viem/chains";
 
 export type ScaffoldConfig = {
@@ -9,9 +10,31 @@ export type ScaffoldConfig = {
   walletAutoConnect: boolean;
 };
 
+export const stylus = defineChain({
+  id: 23011913,
+  name: "Stylus Testnet",
+  network: "zora",
+  nativeCurrency: {
+    decimals: 18,
+    name: "Ether",
+    symbol: "ETH",
+  },
+  rpcUrls: {
+    default: {
+      http: ["https://stylus-testnet.arbitrum.io/rpc"],
+    },
+    public: {
+      http: ["https://stylus-testnet.arbitrum.io/rpc"],
+    },
+  },
+  blockExplorers: {
+    default: { name: "Explorer", url: "https://stylus-testnet-explorer.arbitrum.io/" },
+  },
+});
+
 const scaffoldConfig = {
   // The networks on which your DApp is live
-  targetNetworks: [chains.hardhat],
+  targetNetworks: [stylus],
 
   // The interval at which your front-end polls the RPC servers for new data
   // it has no effect if you only target the local network (default is 4000)
