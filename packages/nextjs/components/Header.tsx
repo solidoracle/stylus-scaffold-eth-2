@@ -2,7 +2,7 @@ import React, { useCallback, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import { Bars3Icon, BugAntIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, TrophyIcon } from "@heroicons/react/24/outline";
 import { FaucetButton, RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 import { useOutsideClick } from "~~/hooks/scaffold-eth";
 
@@ -18,9 +18,9 @@ export const menuLinks: HeaderMenuLink[] = [
     href: "/",
   },
   {
-    label: "Debug Contracts",
+    label: "Interact with Stylus",
     href: "/debug",
-    icon: <BugAntIcon className="h-4 w-4" />,
+    icon: <TrophyIcon className="h-4 w-4" />,
   },
 ];
 
@@ -93,6 +93,13 @@ export const Header = () => {
           <div className="flex flex-col">
             <span className="font-bold leading-tight">Scaffold-ETH</span>
             <span className="text-xs">Ethereum dev stack</span>
+          </div>
+          <div className="flex relative w-10 h-10">
+            <Image alt="SE2 logo" className="cursor-pointer" fill src="/stylus.png" />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-bold leading-tight">Arbitrum Stylus</span>
+            <span className="text-xs">Rust Smart Contracts</span>
           </div>
         </Link>
         <ul className="hidden lg:flex lg:flex-nowrap menu menu-horizontal px-1 gap-2">
